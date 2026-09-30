@@ -1,0 +1,46 @@
+<div class="theme-switcher">
+  <button
+    type="button"
+    class="theme-trigger"
+    [class.is-open]="open()"
+    [attr.aria-expanded]="open()"
+    [attr.aria-label]="'Cambiar estilo (actual: ' + currentTheme().name + ')'"
+    aria-haspopup="menu"
+    matTooltip="Cambiar estilo"
+    (click)="toggle()">
+    <span class="swatch">
+      @for (color of swatch(); track $index) {
+        <span class="swatch-cell" [style.background]="color"></span>
+      }
+    </span>
+  </button>
+
+  @if (open()) {
+    <div class="theme-menu" role="menu" aria-label="Estilos">
+      <p class="theme-menu-title">Estilos</p>
+
+      @for (theme of themes; track theme.id) {
+        <button
+          type="button"
+          class="theme-option"
+          [class.is-active]="theme.id === currentId()"
+          role="menuitemradio"
+          [attr.aria-checked]="theme.id === currentId()"
+          (click)="select(theme.id)">
+          <span class="swatch swatch--menu">
+            @for (color of theme.swatch; track $index) {
+              <span class="swatch-cell" [style.background]="color"></span>
+            }
+          </span>
+          <span class="theme-option-text">
+            <span class="theme-option-name">{{ theme.name }}</span>
+            <span class="theme-option-desc">{{ theme.description }}</span>
+          </span>
+          @if (theme.id === currentId()) {
+            <mat-icon class="theme-check">check</mat-icon>
+          }
+        </button>
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,13 @@
+<app-demo-shell item="dialogs" [code]="code">
+  <div class="dialog-demo">
+    <button mat-flat-button color="warn" (click)="openConfirm()">
+      <mat-icon>delete</mat-icon>
+      Eliminar proyecto
+    </button>
+
+    <p class="dialog-result">
+      <mat-icon>radio_button_unchecked</mat-icon>
+      Último resultado: <strong>{{ lastResult() }}</strong>
+    </p>
+  </div>
+</app-demo-shell>

@@ -1,0 +1,22 @@
+<app-demo-shell item="alerts" [code]="code">
+  <div class="alerts-stack">
+    @for (alert of alerts(); track alert.id) {
+      <div class="alert" [attr.data-type]="alert.id" role="alert">
+        <mat-icon class="alert-icon">{{ alert.icon }}</mat-icon>
+        <div class="alert-body">
+          <p class="alert-title">{{ alert.title }}</p>
+          <p class="alert-text">{{ alert.text }}</p>
+        </div>
+        <button
+          type="button"
+          class="alert-close"
+          [attr.aria-label]="'Cerrar alerta ' + alert.title"
+          (click)="dismiss(alert.id)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    } @empty {
+      <p class="alerts-empty">Todas las alertas fueron cerradas.</p>
+    }
+  </div>
+</app-demo-shell>

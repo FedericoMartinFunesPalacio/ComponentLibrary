@@ -1,0 +1,26 @@
+<app-demo-shell item="toolbar" [code]="code">
+  <div class="toolbar-stack">
+    <mat-toolbar class="demo-toolbar">
+      <span class="demo-toolbar-brand">
+        <mat-icon>widgets</mat-icon>
+        Mi App
+      </span>
+      <span class="demo-toolbar-spacer"></span>
+      <button mat-button>Inicio</button>
+      <button mat-button>Productos</button>
+      <button mat-icon-button aria-label="Buscar">
+        <mat-icon>search</mat-icon>
+      </button>
+      <button mat-icon-button aria-label="Cuenta">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <mat-toolbar class="demo-toolbar" color="primary">
+      <span class="demo-toolbar-brand">Panel de administración</span>
+      <span class="demo-toolbar-spacer"></span>
+      <button mat-button>Usuarios</button>
+      <button mat-stroked-button>Salir</button>
+    </mat-toolbar>
+  </div>
+</app-demo-shell>

@@ -1,0 +1,31 @@
+<app-demo-shell item="progress-indicators" [code]="code">
+  <div class="progress-grid">
+    <div class="progress-block progress-block-wide">
+      <div class="progress-head">
+        <span>Progreso del build</span>
+        <strong>{{ progress() }}%</strong>
+      </div>
+
+      <mat-progress-bar mode="determinate" [value]="progress()"></mat-progress-bar>
+
+      <div class="custom-track">
+        <div class="custom-fill" [style.width.%]="progress()"></div>
+      </div>
+
+      <button mat-stroked-button color="primary" (click)="play()">
+        <mat-icon>animation</mat-icon>
+        Reproducir animación
+      </button>
+    </div>
+
+    <div class="progress-block progress-block-center">
+      <mat-spinner diameter="56"></mat-spinner>
+      <p>Indeterminado</p>
+    </div>
+
+    <div class="progress-block progress-block-center">
+      <mat-spinner diameter="56" mode="determinate" [value]="progress()"></mat-spinner>
+      <p>Determinado</p>
+    </div>
+  </div>
+</app-demo-shell>

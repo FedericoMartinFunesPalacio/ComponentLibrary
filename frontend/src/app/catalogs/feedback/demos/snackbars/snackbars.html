@@ -1,0 +1,16 @@
+<app-demo-shell item="snackbars" [code]="code">
+  <div class="snack-row">
+    <button mat-flat-button color="primary" (click)="show('success')">
+      <mat-icon>check_circle</mat-icon>
+      Éxito
+    </button>
+    <button mat-stroked-button (click)="show('info')">
+      <mat-icon>info</mat-icon>
+      Información
+    </button>
+    <button mat-stroked-button color="warn" (click)="show('error')">
+      <mat-icon>error</mat-icon>
+      Error
+    </button>
+  </div>
+</app-demo-shell>

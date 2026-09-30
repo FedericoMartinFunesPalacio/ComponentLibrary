@@ -1,0 +1,13 @@
+.icon-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.icon-separator {
+  width: 1px;
+  height: 28px;
+  background: var(--color-border-strong);
+}

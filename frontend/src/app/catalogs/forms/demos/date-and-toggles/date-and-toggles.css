@@ -1,0 +1,51 @@
+.demo-toggles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-5);
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.demo-toggles-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.demo-radio {
+  margin: 0;
+  padding: var(--space-3) 0 0;
+  border: 0;
+}
+
+.demo-radio legend {
+  padding: 0;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.demo-radio-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.demo-json {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: var(--space-4);
+  background: var(--code-bg);
+  color: var(--code-text);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  overflow-x: auto;
+}

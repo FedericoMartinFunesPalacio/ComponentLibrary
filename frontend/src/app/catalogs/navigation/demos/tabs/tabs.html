@@ -1,0 +1,35 @@
+<app-demo-shell item="tabs" [code]="code">
+  <div class="tabs-wrap">
+    <mat-tab-group class="demo-tabs" animationDuration="220ms">
+      <mat-tab>
+        <ng-template matTabLabel>
+          <mat-icon>home</mat-icon>
+          Inicio
+        </ng-template>
+        <p class="demo-tab-content">
+          Contenido de la pestaña de inicio. El indicador se anima con la duración
+          configurada en <code>animationDuration</code>.
+        </p>
+      </mat-tab>
+
+      <mat-tab label="Características">
+        <ul class="demo-list">
+          @for (feature of features; track feature) {
+            <li>
+              <mat-icon>check_circle</mat-icon>
+              {{ feature }}
+            </li>
+          }
+        </ul>
+      </mat-tab>
+
+      <mat-tab label="Contacto">
+        <p class="demo-tab-content">
+          Escribinos a <a href="mailto:hola@example.com">hola@example.com</a>.
+        </p>
+      </mat-tab>
+
+      <mat-tab label="Deshabilitada" disabled></mat-tab>
+    </mat-tab-group>
+  </div>
+</app-demo-shell>

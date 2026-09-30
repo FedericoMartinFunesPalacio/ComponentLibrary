@@ -1,0 +1,322 @@
+/* =========================================================
+   VARIABLES.GLOBAL DEL PROYECTO
+   Todo el estilo de la biblioteca se controla desde acá:
+   colores, tipografía, espaciados, sombras, layout y tokens
+   de Angular Material.
+
+   TEMAS: cada tema es un bloque [data-theme='...'] al final
+   del archivo que sobreescribe los tokens del tema base.
+   Para agregar un tema nuevo:
+     1) Crear el bloque [data-theme='mi-tema'] { ... }
+     2) Registrarlo en src/app/core/theme.service.ts
+   ========================================================= */
+
+:root {
+  color-scheme: light;
+
+  /* -------------------------------------------------------
+     1. TIPOGRAFÍA
+  ------------------------------------------------------- */
+  --font-family-base: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace;
+
+  --font-size-2xs: 0.6875rem; /* 11px */
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.8125rem; /* 13px */
+  --font-size-md: 0.875rem; /* 14px */
+  --font-size-lg: 1rem; /* 16px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.625rem; /* 26px */
+  --font-size-3xl: 2.25rem; /* 36px */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.2;
+  --line-height-base: 1.55;
+
+  /* -------------------------------------------------------
+     2. COLOR — MARCA
+  ------------------------------------------------------- */
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-primary-active: #3730a3;
+  --color-primary-container: #e0e7ff;
+  --color-on-primary-container: #312e81;
+
+  --color-accent: #06b6d4;
+  --color-accent-hover: #0891b2;
+  --color-accent-container: #cffafe;
+  --color-on-accent-container: #155e75;
+
+  /* -------------------------------------------------------
+     3. COLOR — ESTADOS
+  ------------------------------------------------------- */
+  --color-success: #16a34a;
+  --color-success-bg: #dcfce7;
+  --color-on-success: #14532d;
+
+  --color-warning: #d97706;
+  --color-warning-bg: #fef3c7;
+  --color-on-warning: #78350f;
+
+  --color-danger: #dc2626;
+  --color-danger-bg: #fee2e2;
+  --color-on-danger: #7f1d1d;
+
+  --color-info: #0284c7;
+  --color-info-bg: #e0f2fe;
+  --color-on-info: #0c4a6e;
+
+  /* -------------------------------------------------------
+     4. COLOR — SUPERFICIES Y TEXTO
+  ------------------------------------------------------- */
+  --color-bg: #f5f6fb;
+  --color-surface: #ffffff;
+  --color-surface-alt: #eef1f8;
+  --color-surface-hover: #e8ecf6;
+  --color-surface-sunken: #e2e7f2;
+
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #7c8aa5;
+  --color-text-inverse: #ffffff;
+
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+
+  /* -------------------------------------------------------
+     5. COLOR — CÓDIGO FUENTE
+  ------------------------------------------------------- */
+  --code-bg: #0b1220;
+  --code-header-bg: #111a2e;
+  --code-text: #dbe4f0;
+  --code-border: #1e293b;
+  --code-token-comment: #64748b;
+  --code-token-tag: #7dd3fc;
+  --code-token-attr: #c4b5fd;
+  --code-token-string: #86efac;
+
+  /* -------------------------------------------------------
+     6. SOMBRAS
+  ------------------------------------------------------- */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12), 0 4px 8px rgba(15, 23, 42, 0.06);
+  --shadow-overlay: 0 24px 64px rgba(15, 23, 42, 0.22);
+
+  /* -------------------------------------------------------
+     7. RADIOS DE BORDE
+  ------------------------------------------------------- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  /* -------------------------------------------------------
+     8. ESPACIADO (escala base 4px)
+  ------------------------------------------------------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* -------------------------------------------------------
+     9. LAYOUT
+     Breakpoints (para media queries, no se pueden usar
+     como variables en CSS):
+       --chico:  640px
+       --medio:  900px
+       --grande: 1200px
+     Sidebar visible desde 1024px en adelante.
+  ------------------------------------------------------- */
+  --sidebar-width: 288px;
+  --toolbar-height: 64px;
+  --content-max-width: 1180px;
+  --demo-min-height: 220px;
+
+  /* -------------------------------------------------------
+     10. TRANSICIONES Y EASINGS
+  ------------------------------------------------------- */
+  --transition-fast: 150ms;
+  --transition-base: 250ms;
+  --transition-slow: 450ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1.2);
+
+  /* -------------------------------------------------------
+     11. Z-INDEX
+  ------------------------------------------------------- */
+  --z-toolbar: 30;
+  --z-backdrop: 40;
+  --z-sidebar: 45;
+  --z-toast: 60;
+
+  /* -------------------------------------------------------
+     12. TOKENS DE ANGULAR MATERIAL (M3)
+     Estos overrides hacen que Material use la paleta de
+     la biblioteca definida arriba.
+  ------------------------------------------------------- */
+  --mat-sys-primary: var(--color-primary);
+  --mat-sys-on-primary: var(--color-text-inverse);
+  --mat-sys-primary-container: var(--color-primary-container);
+  --mat-sys-on-primary-container: var(--color-on-primary-container);
+
+  --mat-sys-secondary: var(--color-accent);
+  --mat-sys-on-secondary: var(--color-text-inverse);
+  --mat-sys-secondary-container: var(--color-accent-container);
+  --mat-sys-on-secondary-container: var(--color-on-accent-container);
+
+  --mat-sys-tertiary: var(--color-info);
+  --mat-sys-on-tertiary: var(--color-text-inverse);
+  --mat-sys-tertiary-container: var(--color-info-bg);
+  --mat-sys-on-tertiary-container: var(--color-on-info);
+
+  --mat-sys-error: var(--color-danger);
+  --mat-sys-on-error: var(--color-text-inverse);
+  --mat-sys-error-container: var(--color-danger-bg);
+  --mat-sys-on-error-container: var(--color-on-danger);
+
+  --mat-sys-surface: var(--color-surface);
+  --mat-sys-surface-dim: var(--color-bg);
+  --mat-sys-surface-bright: var(--color-surface);
+  --mat-sys-surface-container-lowest: var(--color-surface);
+  --mat-sys-surface-container-low: var(--color-surface-alt);
+  --mat-sys-surface-container: var(--color-surface-alt);
+  --mat-sys-surface-container-high: var(--color-surface-hover);
+  --mat-sys-surface-container-highest: var(--color-surface-sunken);
+
+  --mat-sys-on-surface: var(--color-text);
+  --mat-sys-on-surface-variant: var(--color-text-secondary);
+  --mat-sys-outline: var(--color-border-strong);
+  --mat-sys-outline-variant: var(--color-border);
+
+  --mat-sys-inverse-surface: #1e293b;
+  --mat-sys-inverse-on-surface: #f8fafc;
+  --mat-sys-inverse-primary: #a5b4fc;
+
+  --mat-sys-scrim: rgba(15, 23, 42, 0.5);
+  --mat-sys-shadow: rgba(15, 23, 42, 0.24);
+  --mat-sys-surface-tint: var(--color-primary);
+}
+
+/* =========================================================
+   TEMA: CLARO (base — el bloque de arriba)
+   Blanco, celeste y azul. No necesita bloque propio.
+   ========================================================= */
+
+/* =========================================================
+   TEMA: OSCURO — negro, grises y poco blanco
+   ========================================================= */
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* Marca */
+  --color-primary: #6366f1;
+  --color-primary-hover: #4f46e5;
+  --color-primary-active: #4338ca;
+  --color-primary-container: #312e81;
+  --color-on-primary-container: #e0e7ff;
+
+  --color-accent: #22d3ee;
+  --color-accent-hover: #06b6d4;
+  --color-accent-container: #155e75;
+  --color-on-accent-container: #a5f3fc;
+
+  /* Estados */
+  --color-success: #22c55e;
+  --color-success-bg: #052e16;
+  --color-on-success: #bbf7d0;
+
+  --color-warning: #f59e0b;
+  --color-warning-bg: #451a03;
+  --color-on-warning: #fde68a;
+
+  --color-danger: #ef4444;
+  --color-danger-bg: #450a0a;
+  --color-on-danger: #fecaca;
+
+  --color-info: #38bdf8;
+  --color-info-bg: #082f49;
+  --color-on-info: #bae6fd;
+
+  /* Superficies: negro y grises */
+  --color-bg: #0a0a0c;
+  --color-surface: #141417;
+  --color-surface-alt: #1a1a1f;
+  --color-surface-hover: #232329;
+  --color-surface-sunken: #0f0f12;
+
+  /* Texto: poco blanco */
+  --color-text: #e9eaed;
+  --color-text-secondary: #a7abb4;
+  --color-text-muted: #6f7480;
+
+  --color-border: #26262c;
+  --color-border-strong: #3a3a42;
+
+  /* Código */
+  --code-bg: #0a0a0c;
+  --code-header-bg: #101014;
+  --code-text: #d4d4d8;
+  --code-border: #1f1f26;
+  --code-token-comment: #6f7480;
+  --code-token-tag: #7dd3fc;
+  --code-token-attr: #c4b5fd;
+  --code-token-string: #86efac;
+
+  /* Sombras más profundas sobre fondo negro */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.55);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.65);
+  --shadow-overlay: 0 24px 64px rgba(0, 0, 0, 0.8);
+
+  /* Tokens de Material que no derivan de variables */
+  --mat-sys-inverse-surface: #e5e7eb;
+  --mat-sys-inverse-on-surface: #111827;
+  --mat-sys-inverse-primary: #6366f1;
+  --mat-sys-scrim: rgba(0, 0, 0, 0.7);
+  --mat-sys-shadow: rgba(0, 0, 0, 0.9);
+}
+
+/* =========================================================
+   TEMA: AZUL — azul intenso sobre fondo celeste
+   ========================================================= */
+[data-theme='azul'] {
+  color-scheme: light;
+
+  --color-bg: #eaf2ff;
+  --color-surface: #ffffff;
+  --color-surface-alt: #e2ecfe;
+  --color-surface-hover: #d8e5fd;
+  --color-surface-sunken: #cddffb;
+
+  --color-text: #0b1f46;
+  --color-text-secondary: #334770;
+  --color-text-muted: #64789f;
+
+  --color-border: #c9daf8;
+  --color-border-strong: #a6c0ee;
+
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-active: #1e40af;
+  --color-primary-container: #dbeafe;
+  --color-on-primary-container: #1e3a8a;
+
+  --color-accent: #0ea5e9;
+  --color-accent-hover: #0284c7;
+  --color-accent-container: #e0f2fe;
+  --color-on-accent-container: #075985;
+}

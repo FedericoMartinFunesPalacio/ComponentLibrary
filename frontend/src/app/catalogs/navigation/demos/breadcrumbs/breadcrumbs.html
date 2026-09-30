@@ -1,0 +1,32 @@
+<app-demo-shell item="breadcrumbs" [code]="code">
+  <div class="crumbs-wrap">
+    <nav class="crumbs" aria-label="Ruta de navegación">
+      <ol class="crumbs-list">
+        @for (item of visibleItems(); track item; let last = $last; let i = $index) {
+          <li class="crumbs-item">
+            @if (last) {
+              <span class="crumbs-current" aria-current="page">
+                @if (i === 0) {
+                  <mat-icon>home</mat-icon>
+                }
+                {{ item }}
+              </span>
+            } @else {
+              <button type="button" class="crumbs-link" (click)="goTo(i)">
+                @if (i === 0) {
+                  <mat-icon>home</mat-icon>
+                }
+                {{ item }}
+              </button>
+              <mat-icon class="crumbs-separator">chevron_right</mat-icon>
+            }
+          </li>
+        }
+      </ol>
+    </nav>
+
+    <p class="crumbs-panel">
+      Estás viendo: <strong>{{ items[current()] }}</strong>
+    </p>
+  </div>
+</app-demo-shell>

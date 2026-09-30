@@ -1,0 +1,33 @@
+<app-demo-shell item="select-autocomplete" [code]="code">
+  <div class="demo-select">
+    <mat-form-field appearance="outline">
+      <mat-label>Framework favorito</mat-label>
+      <mat-select [formControl]="frameworkCtrl">
+        @for (framework of frameworks; track framework) {
+          <mat-option [value]="framework">{{ framework }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>País</mat-label>
+      <input
+        matInput
+        [formControl]="countryCtrl"
+        [matAutocomplete]="auto"
+        placeholder="Escribí para filtrar..." />
+      <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
+        @for (country of filteredCountries(); track country) {
+          <mat-option [value]="country">{{ country }}</mat-option>
+        } @empty {
+          <mat-option disabled>Sin resultados</mat-option>
+        }
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <p class="demo-select-summary">
+      <span>Selección actual</span>
+      <strong>{{ summary() }}</strong>
+    </p>
+  </div>
+</app-demo-shell>

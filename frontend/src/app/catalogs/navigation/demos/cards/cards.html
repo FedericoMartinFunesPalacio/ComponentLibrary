@@ -1,0 +1,63 @@
+<app-demo-shell item="cards" [code]="code">
+  <div class="cards-grid">
+    <mat-card class="demo-card">
+      <mat-card-header>
+        <div mat-card-avatar class="demo-card-avatar">
+          <mat-icon>person</mat-icon>
+        </div>
+        <mat-card-title>Ada Lovelace</mat-card-title>
+        <mat-card-subtitle>Tech Lead · Plataforma</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Encargada del diseño de la biblioteca de componentes y sus estándares.</p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button>Ver perfil</button>
+        <button mat-flat-button color="primary">Seguir</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="demo-card">
+      <div class="demo-card-media">
+        <span class="demo-card-badge">Destacado</span>
+        <mat-icon>auto_awesome</mat-icon>
+      </div>
+      <mat-card-header>
+        <mat-card-title>Componentes v1.0</mat-card-title>
+        <mat-card-subtitle>15 demos disponibles</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="demo-card-progress">
+          <span>Completado</span>
+          <strong>75%</strong>
+        </div>
+        <div class="demo-card-track">
+          <div class="demo-card-fill"></div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-icon-button (click)="toggleFavorite()" aria-label="Favorito">
+          <mat-icon>{{ favorite() ? 'favorite' : 'favorite_border' }}</mat-icon>
+        </button>
+        <button mat-button>Compartir</button>
+        <button mat-flat-button color="primary">Abrir</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="demo-card demo-card-outlined">
+      <mat-card-header>
+        <mat-card-title>¿Listo para copiar?</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          Cambiá los tokens de <code>variables.css</code> y todos los componentes se
+          actualizan solos.
+        </p>
+      </mat-card-content>
+      <mat-card-footer class="demo-card-footer">
+        <span>MIT License</span>
+        <button mat-stroked-button color="primary">Ver código</button>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</app-demo-shell>

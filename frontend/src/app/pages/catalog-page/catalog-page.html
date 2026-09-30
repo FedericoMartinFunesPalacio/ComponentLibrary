@@ -1,0 +1,140 @@
+<div class="catalog-page">
+  <header class="topbar">
+    <button
+      class="topbar-menu"
+      type="button"
+      aria-label="Abrir catálogo de componentes"
+      (click)="toggleSidebar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <a class="topbar-brand" href="#top">
+      <span class="brand-mark"><mat-icon>widgets</mat-icon></span>
+      <span class="brand-name">Component <strong>Library</strong></span>
+    </a>
+
+    <span class="topbar-badge">{{ totalDemos }} componentes</span>
+
+    <div class="topbar-spacer"></div>
+
+    <app-theme-switcher />
+
+    <a
+      class="topbar-github"
+      href="https://github.com/FedericoMartinFunesPalacio/ComponentLibrary.git"
+      target="_blank"
+      rel="noopener"
+      mat-icon-button
+      matTooltip="Ver repositorio en GitHub"
+      aria-label="Repositorio en GitHub">
+      <mat-icon>code</mat-icon>
+    </a>
+  </header>
+
+  <div class="layout">
+    <aside class="catalog-sidebar" aria-label="Navegación de componentes">
+      <div class="side-search">
+        <mat-icon class="side-search-icon">search</mat-icon>
+        <input
+          type="search"
+          class="side-search-input"
+          placeholder="Buscar componente..."
+          aria-label="Buscar componente"
+          [value]="query()"
+          (input)="onSearch($event)" />
+        @if (isSearching()) {
+          <button
+            type="button"
+            class="side-search-clear"
+            aria-label="Limpiar búsqueda"
+            (click)="clearSearch()">
+            <mat-icon>close</mat-icon>
+          </button>
+        }
+      </div>
+
+      <nav class="side-nav">
+        @if (isSearching()) {
+          <p class="side-label">Resultados ({{ results().length }})</p>
+          @for (demo of results(); track demo.id) {
+            <button type="button" class="side-link" [class.is-active]="activeId() === demo.id" (click)="goTo(demo.id)">
+              <mat-icon>{{ demo.icon }}</mat-icon>
+              <span class="side-link-text">
+                <span class="side-link-title">{{ demo.title }}</span>
+                <span class="side-link-catalog">{{ demo.catalogTitle }}</span>
+              </span>
+            </button>
+          } @empty {
+            <p class="side-empty">Sin componentes para “{{ query() }}”.</p>
+          }
+        } @else {
+          @for (catalog of catalogs; track catalog.id) {
+            <div class="side-group">
+              <p class="side-label">
+                <mat-icon>{{ catalog.icon }}</mat-icon>
+                {{ catalog.title }}
+              </p>
+              @for (demo of catalog.demos; track demo.id) {
+                <button
+                  type="button"
+                  class="side-link"
+                  [class.is-active]="activeId() === demo.id"
+                  (click)="goTo(demo.id)">
+                  <span class="side-link-dot"></span>
+                  <span class="side-link-title">{{ demo.title }}</span>
+                </button>
+              }
+            </div>
+          }
+        }
+      </nav>
+    </aside>
+
+    <div
+      class="catalog-backdrop"
+      [class.is-open]="sidebarOpen()"
+      (click)="closeSidebar()"></div>
+
+    <main class="catalog-main" id="top">
+      <section class="hero">
+        <p class="hero-eyebrow" data-hero>Angular 20 · Standalone · Material · AnimeJs</p>
+        <h1 class="hero-title" data-hero>
+          Biblioteca de componentes <span>reutilizables</span>
+        </h1>
+        <p class="hero-subtitle" data-hero>
+          Copiá el código de cada componente y usalo en tus proyectos. Control flow moderno
+          (&#64;if / &#64;for), formularios reactivos en TypeScript y estilos manejados 100% desde
+          <code>variables.css</code>.
+        </p>
+        <div class="hero-stats" data-hero>
+          <div class="hero-stat">
+            <strong>{{ totalDemos }}</strong>
+            <span>Componentes</span>
+          </div>
+          <div class="hero-stat">
+            <strong>{{ catalogs.length }}</strong>
+            <span>Catálogos</span>
+          </div>
+          <div class="hero-stat">
+            <strong>100%</strong>
+            <span>Copy &amp; paste</span>
+          </div>
+        </div>
+      </section>
+
+      <app-buttons-catalog />
+      <app-forms-catalog />
+      <app-tables-catalog />
+      <app-feedback-catalog />
+      <app-navigation-catalog />
+
+      <footer class="catalog-footer">
+        <mat-icon>favorite</mat-icon>
+        <p>
+          Biblioteca personal de componentes · Estilos centralizados en
+          <code>src/variables.css</code>
+        </p>
+      </footer>
+    </main>
+  </div>
+</div>

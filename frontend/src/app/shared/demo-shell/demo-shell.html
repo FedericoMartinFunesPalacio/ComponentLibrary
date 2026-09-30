@@ -1,0 +1,60 @@
+<div class="demo-card">
+  <header class="demo-header">
+    <div class="demo-heading">
+      <h3 class="demo-title">{{ meta().title }}</h3>
+      <p class="demo-description">{{ meta().description }}</p>
+      <ul class="demo-tags">
+        @for (tag of meta().tags; track tag) {
+          <li class="demo-tag">{{ tag }}</li>
+        }
+      </ul>
+    </div>
+  </header>
+
+  <div class="demo-toolbar">
+    <div class="demo-switch" role="tablist" aria-label="Vista del componente">
+      <button
+        type="button"
+        role="tab"
+        class="demo-switch-btn"
+        [class.is-active]="view() === 'preview'"
+        [attr.aria-selected]="view() === 'preview'"
+        (click)="setView('preview')">
+        Vista previa
+      </button>
+      @for (lang of languages(); track lang) {
+        <button
+          type="button"
+          role="tab"
+          class="demo-switch-btn"
+          [class.is-active]="view() === lang"
+          [attr.aria-selected]="view() === lang"
+          (click)="setView(lang)">
+          {{ lang | uppercase }}
+        </button>
+      }
+    </div>
+
+    @if (view() !== 'preview') {
+      <button
+        type="button"
+        class="demo-copy-btn"
+        [class.is-copied]="copied()"
+        (click)="copy()"
+        matTooltip="Copiar código al portapapeles">
+        <mat-icon>{{ copied() ? 'check' : 'content_copy' }}</mat-icon>
+        <span>{{ copied() ? 'Copiado' : 'Copiar' }}</span>
+      </button>
+    }
+  </div>
+
+  <div class="demo-body">
+    <div class="demo-panel demo-preview" [class.is-active]="view() === 'preview'">
+      <ng-content />
+    </div>
+
+    <div class="demo-panel demo-code" [class.is-active]="view() !== 'preview'">
+      <pre><code>{{ currentCode() }}</code></pre>
+    </div>
+  </div>
+</div>

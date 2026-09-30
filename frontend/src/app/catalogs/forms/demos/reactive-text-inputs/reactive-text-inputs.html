@@ -1,0 +1,64 @@
+<app-demo-shell item="reactive-text-inputs" [code]="code">
+  <form class="demo-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre completo</mat-label>
+      <input matInput formControlName="nombre" placeholder="Ej: Ada Lovelace" />
+      <mat-icon matPrefix>person</mat-icon>
+      @if (hasError(nombre)) {
+        <mat-error>
+          @if (nombre.hasError('required')) {
+            El nombre es obligatorio.
+          } @else {
+            Mínimo 3 caracteres.
+          }
+        </mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" placeholder="ada@mail.com" />
+      <mat-icon matPrefix>mail</mat-icon>
+      @if (hasError(email)) {
+        <mat-error>
+          @if (email.hasError('required')) {
+            El email es obligatorio.
+          } @else {
+            Ingresá un email válido.
+          }
+        </mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Contraseña</mat-label>
+      <input
+        matInput
+        type="password"
+        formControlName="password"
+        placeholder="Mínimo 8 caracteres" />
+      <mat-icon matPrefix>lock</mat-icon>
+      @if (hasError(password)) {
+        <mat-error>
+          @if (password.hasError('required')) {
+            La contraseña es obligatoria.
+          } @else {
+            Mínimo 8 caracteres.
+          }
+        </mat-error>
+      }
+    </mat-form-field>
+
+    <div class="demo-form-actions">
+      <button mat-flat-button color="primary" type="submit">Registrarme</button>
+      <button mat-stroked-button type="button" (click)="reset()">Limpiar</button>
+    </div>
+
+    @if (success()) {
+      <p class="demo-form-success">
+        <mat-icon>check_circle</mat-icon>
+        ¡Cuenta creada con éxito!
+      </p>
+    }
+  </form>
+</app-demo-shell>

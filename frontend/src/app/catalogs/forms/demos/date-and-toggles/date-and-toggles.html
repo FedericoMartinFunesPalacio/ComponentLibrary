@@ -1,0 +1,37 @@
+<app-demo-shell item="date-and-toggles" [code]="code">
+  <div class="demo-toggles">
+    <div class="demo-toggles-column">
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha de nacimiento</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          [formControl]="form.controls.fecha"
+          placeholder="dd/mm/aaaa" />
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-checkbox [formControl]="form.controls.newsletter">
+        Recibir el newsletter semanal
+      </mat-checkbox>
+    </div>
+
+    <div class="demo-toggles-column">
+      <mat-slide-toggle [formControl]="form.controls.modoOscuro">
+        Activar modo oscuro
+      </mat-slide-toggle>
+
+      <fieldset class="demo-radio">
+        <legend>Moneda</legend>
+        <mat-radio-group [formControl]="form.controls.moneda" class="demo-radio-row">
+          @for (currency of currencies; track currency) {
+            <mat-radio-button [value]="currency">{{ currency }}</mat-radio-button>
+          }
+        </mat-radio-group>
+      </fieldset>
+    </div>
+
+    <pre class="demo-json">{{ form.value | json }}</pre>
+  </div>
+</app-demo-shell>

@@ -1,0 +1,21 @@
+.confirm-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--font-size-lg);
+}
+
+.confirm-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--color-warning-bg);
+  color: var(--color-on-warning);
+}
+
+.confirm-message {
+  margin: 0;
+  color: var(--color-text-secondary);
+}

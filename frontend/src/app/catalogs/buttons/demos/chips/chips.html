@@ -1,0 +1,50 @@
+<app-demo-shell item="chips" [code]="code">
+  <div class="chips-grid">
+    <div class="chips-block">
+      <p class="chips-label">Selección múltiple</p>
+      <mat-chip-listbox
+        multiple
+        [value]="selectedFruits()"
+        (change)="onFruitsChange($event)"
+        aria-label="Frutas seleccionadas">
+        @for (fruit of fruits; track fruit) {
+          <mat-chip-option [value]="fruit">{{ fruit }}</mat-chip-option>
+        }
+      </mat-chip-listbox>
+    </div>
+
+    <div class="chips-block">
+      <p class="chips-label">Removibles</p>
+      <div class="chips-row">
+        @for (tag of tags(); track tag) {
+          <mat-chip (removed)="removeTag(tag)">
+            {{ tag }}
+            <button matChipRemove [attr.aria-label]="'Quitar ' + tag">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+        } @empty {
+          <span class="chips-empty">Sin etiquetas. Recargá la página para verlas.</span>
+        }
+      </div>
+    </div>
+
+    <div class="chips-block">
+      <p class="chips-label">Con avatar e icono</p>
+      <mat-chip-set aria-label="Etiquetas">
+        <mat-chip>
+          <mat-icon matChipAvatar>label</mat-icon>
+          Etiqueta
+        </mat-chip>
+        <mat-chip>
+          <mat-icon matChipAvatar>folder</mat-icon>
+          Proyecto
+        </mat-chip>
+        <mat-chip disabled>
+          <mat-icon matChipAvatar>lock</mat-icon>
+          Deshabilitado
+        </mat-chip>
+      </mat-chip-set>
+    </div>
+  </div>
+</app-demo-shell>

@@ -1,0 +1,16 @@
+<section class="catalog-section" [attr.id]="meta().id">
+  <header class="section-header">
+    <span class="section-icon">
+      <mat-icon>{{ meta().icon }}</mat-icon>
+    </span>
+    <div class="section-text">
+      <h2 class="section-title">{{ meta().title }}</h2>
+      <p class="section-summary">{{ meta().summary }}</p>
+    </div>
+    <span class="section-count">{{ meta().demos.length }} demos</span>
+  </header>
+
+  <div class="section-body">
+    <ng-content />
+  </div>
+</section>

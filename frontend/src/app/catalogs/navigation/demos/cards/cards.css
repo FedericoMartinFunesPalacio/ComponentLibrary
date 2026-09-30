@@ -1,0 +1,101 @@
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-5);
+  width: 100%;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.demo-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.demo-card-avatar {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: var(--color-text-inverse);
+}
+
+.demo-card-media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 110px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: var(--color-text-inverse);
+}
+
+.demo-card-media mat-icon {
+  font-size: 44px;
+  width: 44px;
+  height: 44px;
+  opacity: 0.9;
+}
+
+.demo-card-badge {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.22);
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.demo-card-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.demo-card-progress strong {
+  color: var(--color-primary);
+}
+
+.demo-card-track {
+  height: 8px;
+  margin-top: var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-sunken);
+  overflow: hidden;
+}
+
+.demo-card-fill {
+  width: 75%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+}
+
+.demo-card-outlined {
+  border: 1px solid var(--color-border-strong);
+  box-shadow: none;
+}
+
+.demo-card-outlined code {
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+  background: var(--color-surface-alt);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.demo-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
