@@ -128,20 +128,17 @@ Pasos la primera vez:
    y elegí rama `deploy` / carpeta `/ (root)`.
 3. Push a `main` → el workflow crea (y actualiza) la rama `deploy` con el build.
 4. URL resultante:
-   `https://<usuario>.github.io/ComponentLibraryByFedericoFunes/`
+   `https://federicomartinfunespalacio.github.io/ComponentLibrary/`
 
-### URL personalizada (base href)
+### Base href (cómo se calcula)
 
-El `base-href` está definido al tope del workflow:
+El workflow calcula el `base-href` solo, a partir del nombre del repositorio:
 
-```yaml
-env:
-  BASE_HREF: /ComponentLibraryByFedericoFunes/
-```
+- Repo normal → `/` + nombre del repo + `/` (ej.: `/ComponentLibrary/`)
+- Repo `<usuario>.github.io` o presencia de `frontend/public/CNAME` → `/`
 
-- Si el repositorio se llama **ComponentLibraryByFedericoFunes**, la URL anterior ya
-  funciona tal cual.
-- Si el repo tiene otro nombre, cambiá ese valor por `/<nombre-del-repo>/`.
+Si renombrás el repositorio no hay que tocar nada: en el próximo push el workflow
+usa el nombre nuevo.
 
 ### Dominio propio (opcional)
 

@@ -13,12 +13,6 @@ concurrency:
   group: deploy
   cancel-in-progress: true
 
-env:
-  # URL personalizada del proyecto:
-  #   https://<usuario>.github.io/ComponentLibraryByFedericoFunes/
-  # Si el repositorio tiene otro nombre, cambiá acá el valor.
-  BASE_HREF: /ComponentLibraryByFedericoFunes/
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -41,12 +35,17 @@ jobs:
 
       - name: Determinar base href
         id: base
-        # Con dominio propio (frontend/public/CNAME) se usa "/", si no la URL personalizada.
+        # La URL de Pages se calcula sola del nombre del repositorio:
+        #   https://<usuario>.github.io/<repositorio>/
+        # Con dominio propio (frontend/public/CNAME) o en un sitio de usuario
+        # (<usuario>.github.io) se usa "/".
         run: |
-          if [ -f public/CNAME ]; then
+          repo="${GITHUB_REPOSITORY#*/}"
+          owner="${GITHUB_REPOSITORY_OWNER}"
+          if [ -f public/CNAME ] || [ "$repo" = "$owner.github.io" ]; then
             echo "href=/" >> "$GITHUB_OUTPUT"
           else
-            echo "href=${BASE_HREF}" >> "$GITHUB_OUTPUT"
+            echo "href=/$repo/" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Build de producción
